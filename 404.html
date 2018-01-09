@@ -35,8 +35,8 @@
         hash: parser.hash
     };
 }
-        
-        window.location.href = "https://client-opjdkhbqca.now.sh?route=" + parseURL(window.location.href).pathname;
+        const newPath = parseURL(window.location.href).pathname.replace('/book-list-client', '')
+        window.location.href = "https://client-opjdkhbqca.now.sh?route=" + newPath;
     </script>
 </body>
 
