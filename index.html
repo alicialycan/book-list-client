@@ -1,24 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book App</title>
+    <link rel="stylesheet" href="styles/app.css">
 </head>
+
 <body>
     <h1>Books Ahoy</h1>
 
-    <section>
-        <ul id="book-list">
-            
+    <nav>
+        <ul>
+            <li>
+                <a href="/">home</a>
+            </li>
+            <li>
+                <a href="/about">about</a>
+            </li>
+            <li>
+                <a href="/admin">admin</a>
+            </li>
+            <li>
+                <a href="/books/create">create</a>
+            </li>
         </ul>
+    </nav>
+
+    <!-- pages -->
+    <section id="book-list-page" class="page">
+        book list
+        <ul id="book-list"></ul>
     </section>
 
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <script src="scripts/models/book.js"></script>
+    <section id="book-detail-page" class="page">
+        book details
+    </section>
+
+    <section id="book-create-page" class="page">
+        book form
+        <form id="book-create-form">
+            <input id="book-create-author" type="text" placeholder="author"></input>
+            <input id="book-create-title" type="text" placeholder="title"></input>
+            <input id="book-create-isbn" type="text" placeholder="isbn"></input>
+            <input id="book-create-image_url" type="text" placeholder="image_url"></input>
+            <textarea id="book-create-description" placeholder="description"></textarea>
+            <button>submit</button>
+        </form>
+    </section>
+
+    <section id="book-update-page" class="page">
+        update book
+    </section>
+
+    <section id="error-page" class="page">
+        error
+    </section>
+
+    <section id="about-page" class="page">
+        About
+    </section>
+
+    <section id="admin-page" class="page">
+        Admin
+    </section>
+
+
+    <!-- load scripts -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+    <script src="scripts/views/book-list-page.js"></script>
+    <script src="scripts/views/book-details-page.js"></script>
+    <script src="scripts/views/book-create-page.js"></script>
+    <script src="scripts/views/book-update-page.js"></script>
+    <script src="scripts/views/about-page.js"></script>
+    <script src="scripts/views/error-page.js"></script>
+    <script src="scripts/views/admin-page.js"></script>
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
+
+    <!-- debug -->
+    <script>
+        console.info('v0.0.1-1')
+    </script>
+
+
 </body>
+
 </html>
