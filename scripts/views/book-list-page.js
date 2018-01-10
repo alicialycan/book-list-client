@@ -6,14 +6,20 @@ var app = app || {};
 
     bookListPage.initIndexView = (books) => {
 
+        // TODO: move to handlebars-template
         const template = Handlebars.compile(`
-            <li class="book-list-item">
-                <p>{{title}}</p>
-                <p>{{author}}</p>
-                <img src="{{image_url}}">
-                <br/>
-                <a href="/books/{{book_id}}">details</a>
-            </li>`)
+
+        <li class="book-items" data-id={{book_id}}>
+      <div class="book-container">
+        <img src={{image_url}}>
+        <div class="book-overlay">
+          <h3>{{title}}</h3>
+          <p>{{author}}</p>
+          <p class="detail-button"><a href="/books/{{book_id}}">view details</a></p>
+        </div>
+      </div>
+    </li>
+        `)
 
         $('#book-list').empty()
 

@@ -4,7 +4,11 @@ var app = app || {};
 
     const errorPage = {}
 
-    errorPage.init = err => $('#error-page').show()
+    const $page = $('#error-page')
+
+    errorPage.init = err => {
+        $page.show()
+    }
 
     module.errorPage = errorPage
 

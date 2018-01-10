@@ -33,6 +33,10 @@ var app = app || {};
         return $.post(__API_URL__, book)
     }
 
+    Book.verify = passphrase => {
+        return $.get('http://localhost:3000/api/v1/admin', {token:passphrase})
+    }
+
     module.Book = Book
 
 })(app)

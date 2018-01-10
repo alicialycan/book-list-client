@@ -6,33 +6,24 @@ var app = app || {};
 
     const $page = $('#book-update-page')
 
-    const template = Handlebars.compile(`
-        <form>
-            <input id="update-title" type="text" value="{{title}}"> 
-            <input id="update-author" type="text" value="{{author}}"> 
-            <input id="update-isbn" type="text" value="{{isbn}}"> 
-            <input id="update-image_url" type="text" value="{{image_url}}"> 
-            <textarea id="update-description" value="{{description}}"></textarea>
-            <button>submit</button>
-        </form>
-    `)
-
     bookUpdatePage.init = book => {
 
-        $page.empty()
-
-        $page.append(template(book))
+        // TODO: better in Handlebars?
+        $('#update-form input[name="title"]').val(book.title);
+        $('#update-form input[name="author"]').val(book.author);
+        $('#update-form input[name="isbn"]').val(book.isbn);
+        $('#update-form input[name="image_url"]').val(book.image_url);
+        $('#update-form textarea[name="description"]').val(book.description);
 
         $page.off().on('submit', (event) => {
-            event.preventDefault()
-            
-            const $form = $(event.target)
 
-            book.title = $form.find('#update-title').val()
-            book.author = $form.find('#update-author').val()
-            book.isbn = $form.find('#update-isbn').val()
-            book.image_url = $form.find('#update-image_url').val()
-            book.description = $form.find('#update-description').val()
+            event.preventDefault()
+
+            book.title = $('#update-form input[name="title"]').val()
+            book.author = $('#update-form input[name="author"]').val()
+            book.isbn = $('#update-form input[name="isbn"]').val()
+            book.image_url = $('#update-form input[name="image_url"]').val()
+            book.description = $('#update-form textarea[name="description"]').val()
 
             app.Book.update(book).then(() => page('/books/' + book.book_id))
         })
