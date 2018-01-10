@@ -20,7 +20,7 @@ page('/*', (ctx, next) => {
 
 page('/', () => {
     app.Book.fetchAll()
-        .then(app.bookListPage.initIndexView)
+        .then(app.bookListPage.init)
 })
 
 page('/books/new', app.bookCreatePage.init)
